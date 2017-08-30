@@ -5,4 +5,5 @@
 查看demo.py<br><br>
 Util.Refresh()：数据库和新的数据需要主动调用此函数更新<br><br>
 Util.Get()：调用可获取一条可用的代理，Util.Get()返回的代理：<br>
-{'http': 'http://115.159.152.130:81', 'https': 'https://115.159.152.130:81'}，requests可以直接使用
+{'http': 'http://115.159.152.130:81', 'https': 'https://115.159.152.130:81'}<br>
+requests可以直接使用：requests.get(url,proxies=Util.Get(),headers={})
