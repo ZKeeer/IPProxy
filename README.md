@@ -29,3 +29,5 @@ http://www.kxdaili.com/</pre>
 <hr /><br>
 逻辑结构：<br>
 <img src="https://github.com/ZKeeer/IPProxy/blob/master/%E9%80%BB%E8%BE%91%E5%9B%BE.png">
+<hr /><br>
+<strong>欢迎issue和pull，代码渣渣，大神轻喷</strong>
