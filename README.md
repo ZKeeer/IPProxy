@@ -7,3 +7,6 @@ Util.Refresh()：数据库和新的数据需要主动调用此函数更新<br><b
 Util.Get()：调用可获取一条可用的代理，Util.Get()返回的代理：<br>
 {'http': 'http://115.159.152.130:81', 'https': 'https://115.159.152.130:81'}<br>
 requests可以直接使用：requests.get(url,proxies=Util.Get(),headers={})
+<hr /><br>
+逻辑结构：<br>
+<img src="https://github.com/ZKeeer/IPProxy/blob/master/%E9%80%BB%E8%BE%91%E5%9B%BE.png">
