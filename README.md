@@ -15,5 +15,17 @@ requests可以直接使用：requests.get(url,proxies=Util.Get(),headers={})
 只抓取首页，想要抓取首页以后页面的可以将链接和正则式贴上来，例如，将某网站的1、2、……页的链接和对应的正则式分别添加到Url_Regular字典中。<br>
 
 添加正则式之前请先在 <a href="http://tool.chinaz.com/regex">站长工具-正则表达式在线测试</a> 测试通过后添加<br>
+<hr /><br>
+<h4>数据来源：</h4>
+<pre>http://www.kuaidaili.com/free/
+http://www.66ip.cn/
+http://www.xicidaili.com/nn/
+http://www.ip3366.net/free/
+http://www.proxy360.cn/Region/China
+http://www.mimiip.com/
+http://www.data5u.com/free/index.shtml
+http://www.ip181.com/
+http://www.kxdaili.com/</pre>
+<hr /><br>
 逻辑结构：<br>
 <img src="https://github.com/ZKeeer/IPProxy/blob/master/%E9%80%BB%E8%BE%91%E5%9B%BE.png">
