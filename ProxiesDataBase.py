@@ -12,12 +12,11 @@ def InitDB():
     db_conn = sqlite3.connect(Config.DBName)
     try:
         db_conn.execute(
-            """CREATE TABLE IF NOT EXISTS {} (IP_PORT TEXT NOT NULL);""".format(Config.TabelName))
+            """CREATE TABLE IF NOT EXISTS {} (IP_PORT TEXT NOT NULL PRIMARY KEY);""".format(Config.TabelName))
         db_conn.commit()
         return True
     except BaseException as e:
         db_conn.rollback()
-        traceback.print_exc()
         return False
     finally:
         db_conn.close()

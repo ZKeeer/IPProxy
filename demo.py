@@ -4,8 +4,6 @@ import Config
 import ProxiesDataBase
 import Util
 
-
-
 if __name__ == '__main__':
     # 初始化数据库和数据表
     ProxiesDataBase.InitDB()

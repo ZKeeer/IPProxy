@@ -1,4 +1,3 @@
-import queue
 from random import choice
 from re import findall
 from threading import Thread
@@ -9,7 +8,7 @@ from requests import get
 import Config
 import ProxiesDataBase
 
-q = queue.Queue()
+d = {}
 
 user_agents = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36",
@@ -78,7 +77,7 @@ def GetIP():
         tmp_ip_list = findall(regular, url_content)
         for item in tmp_ip_list:
             ip_list.append("{}:{}".format(item[0], item[1]))
-       # print(tar_url, "\niplist_len: ", ip_list.__len__())
+            # print(tar_url, "\niplist_len: ", ip_list.__len__())
 
     thread_list = []
     for item in ip_list:
@@ -88,9 +87,8 @@ def GetIP():
     for item in thread_list:
         item.join()
 
-    #print("write into db")
-    while not q.empty():
-        ProxiesDataBase.AddItem(q.get())
+    while d.__len__():
+        ProxiesDataBase.AddItem(d.popitem()[0])
 
 
 def RefreshDB():
@@ -104,14 +102,13 @@ def RefreshDB():
     for item in thread_list:
         item.join()
 
-    #print("write into db")
-    while not q.empty():
-        ProxiesDataBase.AddItem(q.get())
+    ProxiesDataBase.ClearItems()
+    while d.__len__():
+        ProxiesDataBase.AddItem(d.popitem()[0])
 
 
 def VertifyIp(ip, port):
     proxies = {"http": "http://{}:{}".format(ip, port), "https": "https://{}:{}".format(ip, port)}
-    #print("Vertify IP: {}:{}".format(ip, port))
     try:
         url_content = get(Config.TestUrl,
                           proxies=proxies,
@@ -126,6 +123,6 @@ def VertifyIp(ip, port):
                           })
 
         if int(url_content.status_code) == int(200) and "新闻" in url_content.text:
-            q.put("{}:{}".format(ip, port))
+            d.update({"{}:{}".format(ip, port): 0})
     except BaseException as e:
         pass
