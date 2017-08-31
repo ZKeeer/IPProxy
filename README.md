@@ -1,7 +1,8 @@
 # IPProxy
 爬虫所需要的IP代理，抓取八个网站的代理IP检测/清洗/入库/更新，添加调用接口<br>
 <hr /><br>
-目前只在<strong>win10 64位机，python3.5</strong> / <strong>ubuntu server 16.04.1 LTS 64位 ，python 3.5</strong>下测试通过，正在适配python2.x 和 不同配置的机器
+目前只在<strong>win10 64位机，python3.5</strong> / <strong>ubuntu server 16.04.1 LTS 64位 ，python 3.5</strong>下测试通过<br>
+不同配置的机器, 请在<a href='https://github.com/ZKeeer/IPProxy/blob/master/Config.py'>Config.py</a>中修改最大线程数。详情可以看下面Config.py部分
 
 <hr /><br>
 <h3>如何使用</h3>
