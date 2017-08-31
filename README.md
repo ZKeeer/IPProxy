@@ -12,7 +12,7 @@ Util.Get()：调用可获取一条可用的代理，Util.Get()返回的代理：
 requests可以直接使用：requests.get(url,proxies=Util.Get(),headers={})
 <hr /><br>
 <h3>Config.py 部分：</h3>
-<strong>设置最大线程数量限制<strong>，MaxThreads。如果说，我的电脑配置很低，那么设置16，32慢慢跑；如果对你的电脑贼自信，我电脑牛X啊，i7 志强，又是什么N多G内存，网络带宽贼6，那么你可以设置1024。<br>
+<strong>设置最大线程数量限制</strong>，MaxThreads。如果说，我的电脑配置很低，那么设置16，32慢慢跑；如果对你的电脑贼自信，我电脑牛X啊，i7 志强，又是什么N多G内存，网络带宽贼6，那么你可以设置1024。<br>
 如果你还有代理网站可以添加，请添加在Url_Regular字典中。<br>
 代理IP网址和对应的正则式，正则式一定要IP和Port分开获取，例如[(192.168.1.1, 80), (192.168.1.1, 90),]<br>
 只抓取首页，想要抓取首页以后页面的可以将链接和正则式贴上来，例如，将某网站的1、2、……页的链接和对应的正则式分别添加到Url_Regular字典中。<br>
@@ -29,6 +29,7 @@ http://www.mimiip.com/
 http://www.data5u.com/free/index.shtml
 http://www.ip181.com/
 http://www.kxdaili.com/</pre>
+<strong>欢迎添加你知道的代理网站，大家资源共享</strong>
 <hr /><br>
 逻辑结构：<br>
 <img src="https://github.com/ZKeeer/IPProxy/blob/master/%E9%80%BB%E8%BE%91%E5%9B%BE.png">
