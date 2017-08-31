@@ -1,7 +1,9 @@
 DBName = "PROXIES.db"  # 数据库名称
 TabelName = "IPPORT"  # 表
+Column1 = "IP_PORT" # 列1
 TestTimeOut = 10  # 检测IP可用性设置的超时
 TestUrl = "https://www.baidu.com/"  # 用以检测的网站
+
 # 头部代理S
 UserAgents = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36",
@@ -40,6 +42,7 @@ UserAgents = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36",
     "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.94 Safari/537.36"
 ]
+
 # 代理IP网址和对应的正则式，正则式一定要IP和Port分开获取，例如[(192.168.1.1,80),(192.168.1.1,90),]
 # 可自行添加
 # 只抓取首页，想要抓取后面的可以将链接和正则式贴上来

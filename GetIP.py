@@ -1,7 +1,6 @@
 from random import choice
 from re import findall
 from threading import Thread
-from traceback import print_exc
 
 from requests import get
 
@@ -25,8 +24,7 @@ def GetPageContent(tar_url):
                               'User-Agent': choice(Config.UserAgents)
                           }).text
     except BaseException as e:
-        print_exc()
-        print('\n\n\n')
+        pass
     finally:
         return url_content
 
@@ -70,6 +68,7 @@ def RefreshDB():
 
 
 def VertifyIp(ip, port):
+    print("Vertify IP: {}:{}".format(ip, port))
     proxies = {"http": "http://{}:{}".format(ip, port), "https": "https://{}:{}".format(ip, port)}
     try:
         url_content = get(Config.TestUrl,
@@ -84,7 +83,7 @@ def VertifyIp(ip, port):
                               'User-Agent': choice(Config.UserAgents)
                           })
 
-        if int(url_content.status_code) == int(200) and "新闻" in url_content.text:
+        if int(url_content.status_code) == int(200):
             d.update({"{}:{}".format(ip, port): 0})
     except BaseException as e:
         pass
