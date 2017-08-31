@@ -34,14 +34,14 @@ def AddItem(ip_port):
 
 
 def AddItems(ip_list):
-    if ip_list.__len__() < 1:
+    if len(ip_list) < 1:
         return
 
     sql_str = """INSERT INTO IPPORT VALUES """
 
     for item in ip_list:
         sql_str += ("('{}'),".format(item))
-    index = sql_str.__len__()
+    index = len(sql_str)
     sql_str = sql_str[0:index - 1]
     sql_str += ";"
     db_conn = sqlite3.connect(Config.DBName)

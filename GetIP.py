@@ -63,7 +63,7 @@ def RefreshDB():
     thread_list = []
     ips = []
 
-    if ip_list.__len__() < 1:
+    if len(ip_list) < 1:
         return
 
 
