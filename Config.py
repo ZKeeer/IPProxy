@@ -1,8 +1,12 @@
 DBName = "PROXIES.db"  # 数据库名称
 TabelName = "IPPORT"  # 表
 Column1 = "IP_PORT"  # 列1
-TestTimeOut = 10  # 检测IP可用性设置的超时
+
+TestTimeOut = 10  # 检测IP可用性设置的超时，
+                  # 对IP质量要求不高，就把值设的高一点儿。这样可用IP就会增多
 MaxThreads = 64  # 最大线程数，依据电脑性能修改，性能好的电脑可以设置高一点
+                 # 最好设置为2的n次方，别问我为什么，我也不知道，这是玄学
+
 TestUrl = "https://www.baidu.com/"  # 用以检测的网站
 
 # 头部代理S

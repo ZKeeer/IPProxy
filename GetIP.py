@@ -31,6 +31,8 @@ def GetPageContent(tar_url):
 
 
 def GetIP():
+    global d
+    global ip_list
     thread_list = []
     ips = []
 
@@ -50,16 +52,20 @@ def GetIP():
 
     for item in d.keys():
         ips.append(item)
+    d.clear()
     ProxiesDataBase.AddItems(ips)
 
 
 def RefreshDB():
+    global d
+    global ip_list
     ip_list = ProxiesDataBase.GetItems()
     thread_list = []
     ips = []
 
-    if not ip_list:
+    if ip_list.__len__() < 1:
         return
+
 
     for index in range(0, Config.MaxThreads):
         thread_list.append(Thread(target=VerifyIp))
@@ -69,14 +75,18 @@ def RefreshDB():
         item.join()
 
     ProxiesDataBase.ClearItems()
+
     for item in d.keys():
         ips.append(item)
+    d.clear()
     ProxiesDataBase.AddItems(ips)
 
 
 def VerifyIp():
+    global d
     while ip_list:
         tmp_ip_port = ip_list.pop(0)
+        print("verify ip: {}".format(tmp_ip_port))
         proxies = {"http": "http://{}".format(tmp_ip_port), "https": "https://{}".format(tmp_ip_port)}
         try:
             url_content = get(Config.TestUrl,

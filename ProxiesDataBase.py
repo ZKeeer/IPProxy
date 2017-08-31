@@ -1,18 +1,16 @@
 # table IPPORT
 # ip_port TEXT NOT NULL
-import random
 import sqlite3
-from threading import Thread
 import traceback
+
 import Config
-import GetIP
 
 
 def InitDB():
     db_conn = sqlite3.connect(Config.DBName)
     try:
         db_conn.execute(
-            """CREATE TABLE IF NOT EXISTS {} (IP_PORT TEXT NOT NULL PRIMARY KEY);""".format(Config.TabelName))
+            """CREATE TABLE IF NOT EXISTS {} (IP_PORT TEXT NOT NULL);""".format(Config.TabelName))
         db_conn.commit()
         return True
     except BaseException as e:
@@ -34,7 +32,11 @@ def AddItem(ip_port):
         traceback.print_exc()
     db_conn.close()
 
+
 def AddItems(ip_list):
+    if ip_list.__len__() < 1:
+        return
+
     sql_str = """INSERT INTO IPPORT VALUES """
 
     for item in ip_list:
@@ -42,7 +44,6 @@ def AddItems(ip_list):
     index = sql_str.__len__()
     sql_str = sql_str[0:index - 1]
     sql_str += ";"
-
     db_conn = sqlite3.connect(Config.DBName)
     try:
         db_conn.execute(sql_str)
@@ -83,14 +84,10 @@ def GetItems():
     db_conn = sqlite3.connect(Config.DBName)
     db_cur = db_conn.cursor()
     try:
-        tmp = db_cur.execute("""SELECT * FROM {};""".format(Config.TabelName)).fetchall()
-        for item in tmp:
+        for item in db_cur.execute("""SELECT * FROM {};""".format(Config.TabelName)).fetchall():
             ip_list.append(item[0])
     except BaseException as e:
         traceback.print_exc()
     finally:
         db_conn.close()
         return ip_list
-
-
-
