@@ -1,6 +1,9 @@
 # IPProxy
 爬虫所需要的IP代理，抓取八个网站的代理IP检测/清洗/入库/更新，添加调用接口<br>
 <hr /><br>
+目前只在<strong>win10 64位机，python3.5</strong> / <strong>ubuntu server 16.04.1 LTS 64位 ，python 3.5</strong>下测试通过，正在适配python2.x 和 不同配置的机器
+
+<hr /><br>
 <h3>如何使用</h3>
 查看<a href="https://github.com/ZKeeer/IPProxy/blob/master/demo.py">demo.py</a><br><br>
 Util.Refresh()：数据库和新的数据需要主动调用此函数更新<br><br>
