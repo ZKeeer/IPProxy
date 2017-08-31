@@ -4,7 +4,8 @@ import Config
 import ProxiesDataBase
 import Util
 
-if __name__ == '__main__':
+
+def main():
     # 初始化数据库和数据表
     ProxiesDataBase.InitDB()
     # 刷新数据库，添加新数据
@@ -19,3 +20,7 @@ if __name__ == '__main__':
     print(cu.execute("""SELECT * FROM {};""".format(Config.TabelName)).fetchall().__len__())
     cu.close()
     conn.close()
+
+
+if __name__ == '__main__':
+    main()

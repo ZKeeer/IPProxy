@@ -34,6 +34,24 @@ def AddItem(ip_port):
         traceback.print_exc()
     db_conn.close()
 
+def AddItems(ip_list):
+    sql_str = """INSERT INTO IPPORT VALUES """
+
+    for item in ip_list:
+        sql_str += ("('{}'),".format(item))
+    index = sql_str.__len__()
+    sql_str = sql_str[0:index - 1]
+    sql_str += ";"
+
+    db_conn = sqlite3.connect(Config.DBName)
+    try:
+        db_conn.execute(sql_str)
+        db_conn.commit()
+    except BaseException as e:
+        db_conn.rollback()
+        traceback.print_exc()
+    db_conn.close()
+
 
 def DelItem(item):
     db_conn = sqlite3.connect(Config.DBName)
